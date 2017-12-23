@@ -7,11 +7,11 @@ abstract class AbstractDataModule<T> : IDataModule<T> {
 
     protected abstract val data: T
 
-    override fun bind(viewModule: IViewModule<T>) {
+    override fun bind(viewModule: IViewModule<T>?) {
         this.viewModule = viewModule
     }
 
-    override fun unBind(viewModule: IViewModule<T>) {
+    override fun unBind(viewModule: IViewModule<T>?) {
         this.viewModule = null
     }
 

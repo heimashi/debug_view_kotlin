@@ -5,6 +5,8 @@ import android.os.Bundle
 
 import com.sw.debug.view.modules.LogModule
 import kotlinx.android.synthetic.main.activity_example.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 fun log(msg: String) {
     LogModule.instance.log(msg)
@@ -18,7 +20,8 @@ class MainActivity : Activity() {
         setContentView(R.layout.activity_example)
 
         add_log_btn.setOnClickListener {
-            log("click:" + System.currentTimeMillis())
+            val dateFormat = SimpleDateFormat("yyyy-MM-dd hh:MM:ss", Locale.CHINA)
+            log("ADD_LOG::Click at:" + dateFormat.format(Date()))
         }
 
         log("Main onCreate")
