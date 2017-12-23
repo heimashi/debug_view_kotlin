@@ -19,21 +19,15 @@ class DebugViewWrapper {
     }
 
     fun init(builder: Builder?) {
-        if (builder != null) {
-            this.debugView = builder.build()
-        }
+        debugView = builder?.build()
     }
 
     fun show() {
-        if (debugView != null) {
-            debugView!!.show()
-        }
+        debugView?.show()
     }
 
     fun hide() {
-        if (debugView != null) {
-            debugView!!.uninstall()
-        }
+        debugView?.uninstall()
     }
 
     class Builder(private val application: Application) {
@@ -66,10 +60,10 @@ class DebugViewWrapper {
         }
 
         fun modules(debugModule: AbstractDebugModule<*>, vararg otherModule: AbstractDebugModule<*>): Builder {
-            this.debugModules!!.clear()
-            this.debugModules!!.add(debugModule)
+            this.debugModules?.clear()
+            this.debugModules?.add(debugModule)
             for (module in otherModule) {
-                this.debugModules!!.add(module)
+                this.debugModules?.add(module)
             }
             return this
         }
@@ -95,10 +89,10 @@ class DebugViewWrapper {
         }
 
         internal fun build(): DebugView {
-            if (debugModules!!.size == 0) {
-                debugModules!!.add(MemInfoModule(application))
-                debugModules!!.add(FpsModule())
-                debugModules!!.add(LogModule.instance)
+            if (debugModules?.size == 0) {
+                debugModules?.add(MemInfoModule(application))
+                debugModules?.add(FpsModule())
+                debugModules?.add(LogModule.instance)
                 LogModule.instance.setLogMaxLines(logMaxLines)
             }
             return DebugView(application, debugModules!!,

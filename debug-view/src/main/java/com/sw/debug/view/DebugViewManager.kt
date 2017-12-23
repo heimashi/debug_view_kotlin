@@ -15,9 +15,10 @@ import android.view.WindowManager.LayoutParams
 
 import com.sw.debug.view.base.AbstractDebugModule
 
+
 import android.view.WindowManager.LayoutParams.TYPE_SYSTEM_ALERT
 import android.view.WindowManager.LayoutParams.TYPE_TOAST
-import com.sw.debug.view.utils.DebugUtil.dip2px
+import com.sw.debug.view.extensions.dip2px
 
 internal class DebugViewManager(private val context: Context, private val config: DebugView.Config) {
     private val windowManager: WindowManager
@@ -54,7 +55,7 @@ internal class DebugViewManager(private val context: Context, private val config
                         rootView?.addView(view)
                     }
                 }
-                val layoutParamsWidth = dip2px(context, config.viewWidth.toFloat())
+                val layoutParamsWidth = context.dip2px(config.viewWidth.toFloat())
                 val params = createDebugLayoutParams(layoutParamsWidth)
                 windowManager.addView(rootView, params)
 
@@ -66,7 +67,7 @@ internal class DebugViewManager(private val context: Context, private val config
     private fun initControlView() {
         controlView = View(context)
         controlView!!.setBackgroundColor(config.bgColor)
-        val d = dip2px(context, 18f)
+        val d = context.dip2px(18f)
         windowManager.addView(controlView, createControlLayoutParams(d, d))
         controlView!!.setOnClickListener {
             for (debugModule in debugModules!!) {

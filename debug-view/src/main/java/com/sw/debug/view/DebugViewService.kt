@@ -10,9 +10,9 @@ import com.sw.debug.view.base.AbstractDebugModule
 
 import java.util.ArrayList
 
-import com.sw.debug.view.utils.DebugUtil.log
+import com.sw.debug.view.extensions.log
 
-class DebugViewService : Service() {
+internal class DebugViewService : Service() {
 
     private val binder = LocalBinder()
     private var debugModules: List<AbstractDebugModule<*>> = ArrayList()
@@ -36,7 +36,7 @@ class DebugViewService : Service() {
     override fun onDestroy() {
         log("service onDestroy()")
         stopModules()
-        debugViewManager!!.hideDebugView()
+        debugViewManager?.hideDebugView()
     }
 
     override fun onBind(intent: Intent): IBinder? {

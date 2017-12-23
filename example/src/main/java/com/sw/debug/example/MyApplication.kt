@@ -1,7 +1,6 @@
 package com.sw.debug.example
 
 import android.app.Application
-import android.content.Context
 
 import com.sw.debug.view.DebugViewWrapper
 import com.squareup.leakcanary.LeakCanary
@@ -17,19 +16,7 @@ class MyApplication : Application() {
         }
         LeakCanary.install(this)
 
-        /*
-        * init in other thread
-        * */
-        //        new Thread(new Runnable() {
-        //            @Override
-        //            public void run() {
-        //                initDebugView();
-        //            }
-        //        },"debug-view").start();
 
-        /*
-        * init in ui thread
-        * */
         initDebugView()
 
     }
@@ -37,16 +24,13 @@ class MyApplication : Application() {
     private fun initDebugView() {
         DebugViewWrapper.instance.init(
                 DebugViewWrapper.Builder(this)
-                        .viewWidth(250)
-                        .bgColor(0x5f670000)
-                        .alwaysShowOverlaySetting(true)
-                        .logMaxLines(20)
+                        .viewWidth(250) /* the width of debug-view */
+                        .bgColor(0x6f677700) /* the color of debug-view */
+                        .alwaysShowOverlaySetting(true) /* the flag for showing Overlay Setting every time */
+                        .logMaxLines(20) /* the max lines of log */
         )
-        DebugViewWrapper.instance.show()
 
-//        val preferences = getSharedPreferences("debug_view", Context.MODE_PRIVATE)
-//        if (preferences.getBoolean("debug_view_enable", false)) {
-//            DebugViewWrapper.getInstance().show()
-//        }
+
+        DebugViewWrapper.instance.show()
     }
 }
