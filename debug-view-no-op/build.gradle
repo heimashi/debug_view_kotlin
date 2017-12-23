@@ -26,6 +26,10 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
+tasks.withType(Javadoc).all {
+    enabled = false
+}
+
 publish {
     userOrg = 'heimashi'
     groupId = 'com.sw.debug.view'
