@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/debug-view/debug-view.iml" filepath="$PROJECT_DIR$/debug-view/debug-view.iml" />
+      <module fileurl="file://$PROJECT_DIR$/debug-view-no-op/debug-view-no-op.iml" filepath="$PROJECT_DIR$/debug-view-no-op/debug-view-no-op.iml" />
+      <module fileurl="file://$PROJECT_DIR$/debug_view_kotlin.iml" filepath="$PROJECT_DIR$/debug_view_kotlin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example/example.iml" filepath="$PROJECT_DIR$/example/example.iml" />
+    </modules>
+  </component>
+</project>
