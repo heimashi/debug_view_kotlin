@@ -1,7 +1,8 @@
 # debug_view_kotlin
-debug-view是用kotlin实现的用于Android调试的**浮层调试控制台**这个控制台会一直浮在app的UI最上层，
+debug-view是用kotlin实现的用于Android调试的**浮层调试控制台**,这个控制台会一直浮在app的UI最上层，
 用于实时的直观的显示一些app的信息，例如app使用的内存信息、app的实时帧率FPS、文字log信息。
 
+![debug_view](imgs/example_debug_view.png)
 
 How to use
 ----------
