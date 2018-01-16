@@ -4,8 +4,9 @@ debug_view_kotlin
 Debug-View是用Kotlin实现的用于Android调试的**浮层调试控制台**，这个控制台会一直浮在app的UI最上层，
 用于实时地、直观地显示app的性能指标和日志信息：App使用的内存信息、App的实时帧率FPS、文字log信息。
 
-- 推荐一个[kotlin_tips](https://github.com/heimashi/kotlin_tips)，用Kotlin去提高生产力:汇总Kotlin相对于Java的优势，以及怎么用Kotlin去简洁、务实、高效、安全开发的Tips
-- 推荐[easy_mock_api](https://github.com/heimashi/easy_mock_api)，给客户端同学的模拟json接口的小工具
+- 推荐项目[kotlin_tips](https://github.com/heimashi/kotlin_tips)，用Kotlin去提高生产力:汇总Kotlin相对于Java的优势，以及怎么用Kotlin去简洁、务实、高效、安全开发的Tips
+- 推荐项目[easy_mock_api](https://github.com/heimashi/easy_mock_api)，给客户端同学的模拟json接口的小工具
+- 推荐项目[CompatWebView](https://github.com/heimashi/CompatWebView)，CompatWebView is used to fix addJavascriptInterface below Android 4.2
 
 
 How to use
