@@ -28,6 +28,7 @@ def help():
     print "./tools.py adj                   打印进程相关信息（进程id、oom_adj值）"
     print "./tools.py window {lines}        查看窗口层级,参数为显示的行数，不输入则为单行"
     print "./tools.py depend {module name}  打印module依赖关系,参数为module名，不输入则为主模块"
+    print "./tools.py refresh_dep           更新gradle依赖的缓存，重新下载项目依赖"
     print "./tools.py search {content}      全局搜索内容"
 
 
@@ -97,6 +98,10 @@ def depend(*args):
         arg = args[0][0]
     command("./gradlew -q %s:dependencies" % arg)
 
+# 更新gradle依赖的缓存，重新下载项目依赖
+def refresh_dep():
+    command("./gradlew build --refresh-dependencies")
+
 # 全局搜索内容
 def search(*args):
     if len(args)==0:
@@ -104,6 +109,7 @@ def search(*args):
     else:
         arg = args[0][0]
     command("grep -E %s --exclude-dir={.git,lib,.gradle,.idea,build,captures} --exclude={*.jar}  . -R --color=always -n" % arg)
+
 
 
 
