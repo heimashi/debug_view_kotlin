@@ -1,12 +1,23 @@
 package com.sw.debug.example
 
+import android.annotation.SuppressLint
 import android.app.Application
+import android.content.Context
 
 import com.sw.debug.view.DebugViewWrapper
 import com.squareup.leakcanary.LeakCanary
+import com.sw.debug.view.modules.TimerModule
 
+@SuppressLint("StaticFieldLeak")
+var application: Application? = null
 
 class MyApplication : Application() {
+
+    override fun attachBaseContext(base: Context?) {
+        super.attachBaseContext(base)
+        application = this
+        TimerModule.instance.begin(this)
+    }
 
     override fun onCreate() {
         super.onCreate()

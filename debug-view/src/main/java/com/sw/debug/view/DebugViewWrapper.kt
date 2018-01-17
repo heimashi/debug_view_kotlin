@@ -7,6 +7,7 @@ import com.sw.debug.view.base.AbstractDebugModule
 import com.sw.debug.view.modules.FpsModule
 import com.sw.debug.view.modules.LogModule
 import com.sw.debug.view.modules.MemInfoModule
+import com.sw.debug.view.modules.TimerModule
 
 import java.util.ArrayList
 
@@ -92,6 +93,7 @@ class DebugViewWrapper {
             if (debugModules?.size == 0) {
                 debugModules?.add(MemInfoModule(application))
                 debugModules?.add(FpsModule())
+                debugModules?.add(TimerModule.instance)
                 debugModules?.add(LogModule.instance)
                 LogModule.instance.setLogMaxLines(logMaxLines)
             }
