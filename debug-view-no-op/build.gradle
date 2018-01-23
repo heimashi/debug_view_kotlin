@@ -34,7 +34,7 @@ publish {
     userOrg = 'heimashi'
     groupId = 'com.sw.debug.view'
     artifactId = 'debug-view-no-op'
-    publishVersion = '1.0.1'
+    publishVersion = '1.0.2'
     desc = 'This is a supernatant view for debugging(For releaseCompile)'
     website = 'https://github.com/heimashi/debug_view_kotlin'
 }

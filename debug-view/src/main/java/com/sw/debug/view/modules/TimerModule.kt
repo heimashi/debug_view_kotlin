@@ -51,7 +51,7 @@ class TimerModule private constructor() : AbstractDebugModule<List<String>>(Time
 
         private val handler = Handler(Looper.getMainLooper())
 
-        private val timerDataMap: HashMap<Any, Long>
+        private val timerDataMap: HashMap<ClassModel, Long>
 
         private val timerList: MutableList<String>
 
@@ -90,15 +90,16 @@ class TimerModule private constructor() : AbstractDebugModule<List<String>>(Time
 
         internal fun begin(obj: Any?) {
             if (obj == null) return
-            timerDataMap.put(obj, System.currentTimeMillis())
+            timerDataMap.put(ClassModel(obj), System.currentTimeMillis())
         }
 
         internal fun end(obj: Any?) {
             if (obj == null) return
-            if (timerDataMap.containsKey(obj)) {
+            var model = ClassModel(obj)
+            if (timerDataMap.containsKey(model)) {
                 val end = System.currentTimeMillis()
-                val begin = timerDataMap[obj] as Long
-                timerDataMap.remove(obj)
+                val begin = timerDataMap[model] as Long
+                timerDataMap.remove(model)
                 val msg = getCost(begin, end) ?: return
                 while (timerList.size >= maxLines) {
                     timerList.removeAt(0)
@@ -117,6 +118,30 @@ class TimerModule private constructor() : AbstractDebugModule<List<String>>(Time
         }
     }
 
+    private class ClassModel internal constructor(`object`: Any) {
+        internal var hashCode: Int = 0
+        internal var className: String
+
+        init {
+            hashCode = `object`.hashCode()
+            className = `object`.javaClass.name
+        }
+
+        override fun equals(o: Any?): Boolean {
+            if (this === o) return true
+            if (o == null || javaClass != o.javaClass) return false
+
+            val that = o as ClassModel?
+
+            return if (hashCode != that?.hashCode) false else className == that.className
+        }
+
+        override fun hashCode(): Int {
+            var result = hashCode
+            result = 31 * result + className.hashCode()
+            return result
+        }
+    }
 
     /*
     * Timer view

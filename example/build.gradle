@@ -45,7 +45,7 @@ dependencies {
     releaseImplementation project(':debug-view-no-op')
     testImplementation project(':debug-view-no-op')
 
-//    debugImplementation 'com.sw.debug.view:debug-view:1.0.1'
-//    releaseImplementation 'com.sw.debug.view:debug-view-no-op:1.0.1'
-//    testImplementation 'com.sw.debug.view:debug-view-no-op:1.0.1'
+//    debugImplementation 'com.sw.debug.view:debug-view:1.0.2'
+//    releaseImplementation 'com.sw.debug.view:debug-view-no-op:1.0.2'
+//    testImplementation 'com.sw.debug.view:debug-view-no-op:1.0.2'
 }

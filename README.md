@@ -30,9 +30,9 @@ How to import
 - 对于已经支持kotlin的项目,在Application的module里添加依赖即可
 ```groovy
    dependencies {
-     debugImplementation 'com.sw.debug.view:debug-view:1.0.1'
-     releaseImplementation 'com.sw.debug.view:debug-view-no-op:1.0.1'
-     testImplementation 'com.sw.debug.view:debug-view-no-op:1.0.1'
+     debugImplementation 'com.sw.debug.view:debug-view:1.0.2'
+     releaseImplementation 'com.sw.debug.view:debug-view-no-op:1.0.2'
+     testImplementation 'com.sw.debug.view:debug-view-no-op:1.0.2'
    }
 ```
 如果是java项目需要先添加kotlin的支持，步骤是在Android Studio中选择tools ---> kotlin ---> Configure Kotlin in Project
